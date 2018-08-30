@@ -100,24 +100,27 @@
 
 
 
-  <meta name="description" content="this is a description">
-<meta name="keywords" content="test">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yuqing Xia&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="译者注：npm官方网站提供的文档比较简单和零散，这里我结合自己的理解，把module的发布以及本地创建整合到一起进行翻译，更利于理解。 Node.js modules就是一种会在npm上发布的第三方包，也就是我们会通过npm引用的他人编写的第三方包。创建一个新的module从生成一个package.json文件开始。 本地创建配置文件package.json首先，使用npm init    创建p">
+<meta name="keywords" content="npm,node,package">
+<meta property="og:type" content="article">
+<meta property="og:title" content="译：如何创建和发布Node.js modules">
+<meta property="og:url" content="http://yoursite.com/2018/08/30/译：如何创建和发布Node-js-modules/index.html">
 <meta property="og:site_name" content="Yuqing Xia&#39;s Blog">
-<meta property="og:description" content="this is a description">
+<meta property="og:description" content="译者注：npm官方网站提供的文档比较简单和零散，这里我结合自己的理解，把module的发布以及本地创建整合到一起进行翻译，更利于理解。 Node.js modules就是一种会在npm上发布的第三方包，也就是我们会通过npm引用的他人编写的第三方包。创建一个新的module从生成一个package.json文件开始。 本地创建配置文件package.json首先，使用npm init    创建p">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/08/30/译：如何创建和发布Node-js-modules/lodash-package-page.png">
+<meta property="og:updated_time" content="2018-08-30T07:41:47.321Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yuqing Xia&#39;s Blog">
-<meta name="twitter:description" content="this is a description">
+<meta name="twitter:title" content="译：如何创建和发布Node.js modules">
+<meta name="twitter:description" content="译者注：npm官方网站提供的文档比较简单和零散，这里我结合自己的理解，把module的发布以及本地创建整合到一起进行翻译，更利于理解。 Node.js modules就是一种会在npm上发布的第三方包，也就是我们会通过npm引用的他人编写的第三方包。创建一个新的module从生成一个package.json文件开始。 本地创建配置文件package.json首先，使用npm init    创建p">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/30/译：如何创建和发布Node-js-modules/lodash-package-page.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/30/译：如何创建和发布Node-js-modules/"/>
 
 
 
@@ -127,7 +130,7 @@
   };
 </script>
 
-  <title>Yuqing Xia's Blog</title>
+  <title>译：如何创建和发布Node.js modules | Yuqing Xia's Blog</title>
   
 
 
@@ -174,8 +177,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -212,7 +214,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
     <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
@@ -264,214 +266,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/30/译：如何更新package以及更新规则/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yuqing xia">
-      <meta itemprop="description" content="this is a description">
-      <meta itemprop="image" content="/images/my_logo_normal.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yuqing Xia's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/30/译：如何更新package以及更新规则/" itemprop="url">
-                  译：如何更新package以及更新规则
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-08-30 15:30:43 / Modified: 15:31:43" itemprop="dateCreated datePublished" datetime="2018-08-30T15:30:43+08:00">2018-08-30</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>译者注</strong>：上一篇主要讲解了如何在npm上发布你的package，下面我们继续讲解如何更新以及一些更新规范。</p>
-<h3 id="如何语义化版本"><a href="#如何语义化版本" class="headerlink" title="如何语义化版本"></a>如何语义化版本</h3><p>在发布一个新的代码版本时，描述修改范围和程度是很重要的，这是因为当其他工程将该package作为依赖时，package的修改很有可能会引起该工程出错。于是，语义化版本（简称：semver）的提出，定义了一种标准去解决这样的问题。</p>
-<h4 id="开发者而言"><a href="#开发者而言" class="headerlink" title="开发者而言"></a>开发者而言</h4><p>如果一些package项目需要发布出来供他人使用时，一般需要从<code>1.0.0</code>版本开始，尽管还是有一些npm上的项目没有遵循这样的规范。<br>发布之前，对于开发者而言，项目的更新版本需要按照如下标准进行：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">代码状态</th>
-<th style="text-align:center">阶段</th>
-<th style="text-align:center">规则</th>
-<th style="text-align:center">例子</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">首发版本</td>
-<td style="text-align:center">新产品</td>
-<td style="text-align:center">以1.0.0作为初始版本</td>
-<td style="text-align:center">1.0.0</td>
-</tr>
-<tr>
-<td style="text-align:center">bug修复，非feature级的小步改动</td>
-<td style="text-align:center">补丁发布</td>
-<td style="text-align:center">增长第三位数字</td>
-<td style="text-align:center">1.0.1</td>
-</tr>
-<tr>
-<td style="text-align:center">新的feature，并且不会影响已有的feature</td>
-<td style="text-align:center">小版本发布</td>
-<td style="text-align:center">增长第二位数字</td>
-<td style="text-align:center">1.1.0</td>
-</tr>
-<tr>
-<td style="text-align:center">修改会破坏向后兼容性</td>
-<td style="text-align:center">重大发布</td>
-<td style="text-align:center">增长第一位数字</td>
-<td style="text-align:center">2.0.0</td>
-</tr>
-</tbody>
-</table>
-<h4 id="使用者而言"><a href="#使用者而言" class="headerlink" title="使用者而言"></a>使用者而言</h4><p>作为使用者， 你可以在<code>package.json</code>文件中指定你的项目可以接受的更新版本。<br>例如，如果你的项目一开始引用该依赖的版本是<code>1.0.4</code>， 那么根据不同的版本更新阶段，你可以指定的依赖更新范围如下所示：</p>
-<ul>
-<li>补丁发布：1.0 、1.0.x 、~1.0.4</li>
-<li>小版本发布：1 、1.x 、^1.0.4</li>
-<li>重大发布：* 、x</li>
-</ul>
-<h3 id="如何更新package"><a href="#如何更新package" class="headerlink" title="如何更新package"></a>如何更新package</h3><h4 id="版本更新"><a href="#版本更新" class="headerlink" title="版本更新"></a>版本更新</h4><p>当你对package做了修改，你可以通过以下方式更新版本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm version &lt;update_type&gt;</span><br></pre></td></tr></table></figure></p>
-<p>其中<code>&lt;update_type&gt;</code>是按照语义化版本规范得到的发布版本类型，包括：patch，minor，major，分别对应着补丁，小版本，以及重大版本。</p>
-<p>同时，该命令会改变<code>package.json</code>文件中的    <code>version</code>    参数。</p>
-<p><em>注意：如果你的 git仓库与该 package进行了关联，那么这个命令也会在你的 git仓库里添加一条包含有更新版本号的 tag。</em></p>
-<p>完成版本更新后，运行<code>npm publish</code>即可完成package的更新。</p>
-<p><strong>验证：</strong> 访问<code>https://npmjs.com/package/&lt;package&gt;</code>    这种形式的URL，检查其版本是否有更新。</p>
-<h4 id="更新-README-文件"><a href="#更新-README-文件" class="headerlink" title="更新 README 文件"></a>更新 README 文件</h4><p>只有在你的package有新版本发布时，才会更新<code>README</code>文件在package主页上显示的内容，所以你需要通过运行<code>npm version patch</code>和<code>npm publish</code>去更新文档在主页上的显示内容。</p>
-<h3 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h3><p>访问这个URL <a href="https://semver.npmjs.com/" target="_blank" rel="noopener">npm semver calculator</a>，这个工具能帮你更好的了解npm的语义化规范是如何工作的。</p>
-<p>更多关于<code>package.json</code>文件中的依赖版本管理，可以参考<a href="https://docs.npmjs.com/getting-started/using-a-package.json#specifying-packages" target="_blank" rel="noopener">working with package.json</a>。</p>
-<p>对于使用其他方式标注发布版本，可以参考<a href="https://docs.npmjs.com/cli/dist-tag" target="_blank" rel="noopener">dist-tag</a>和<a href="https://docs.npmjs.com/getting-started/using-tags" target="_blank" rel="noopener">how they relate to semantic versioning</a></p>
-<p><strong>相关信息</strong></p>
-<ul>
-<li>原文地址：<ul>
-<li><a href="https://docs.npmjs.com/getting-started/publishing-npm-packages#how-to-update-a-package" target="_blank" rel="noopener">How to Update a Package</a></li>
-<li><a href="https://docs.npmjs.com/getting-started/semantic-versioning" target="_blank" rel="noopener">How to use Semantic Versioning</a></li>
-</ul>
-</li>
-<li>译文出自：TWNTF</li>
-<li>译者：Yuqing Xia</li>
-<li>时间：2018.08.14</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -503,11 +300,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/30/译：如何创建和发布Node-js-modules/" itemprop="url">
-                  译：如何创建和发布Node.js modules
-                </a>
+          <h1 class="post-title" itemprop="name headline">译：如何创建和发布Node.js modules
               
             
           </h1>
@@ -570,9 +363,7 @@
       
 
       
-        
-          
-            <p><strong>译者注</strong>：npm官方网站提供的文档比较简单和零散，这里我结合自己的理解，把module的发布以及本地创建整合到一起进行翻译，更利于理解。</p>
+        <p><strong>译者注</strong>：npm官方网站提供的文档比较简单和零散，这里我结合自己的理解，把module的发布以及本地创建整合到一起进行翻译，更利于理解。</p>
 <p>Node.js modules就是一种会在npm上发布的第三方包，也就是我们会通过npm引用的他人编写的第三方包。创建一个新的module从生成一个<code>package.json</code>文件开始。</p>
 <h3 id="本地创建"><a href="#本地创建" class="headerlink" title="本地创建"></a>本地创建</h3><h4 id="配置文件package-json"><a href="#配置文件package-json" class="headerlink" title="配置文件package.json"></a>配置文件package.json</h4><p>首先，使用<code>npm init</code>    创建<code>package.json</code>文件，创建开始会提示你并完成一些参数的初始化。需要注意的两个参数是<code>name</code>和<code>version</code>，再就是参数<code>main</code>，你可是使用默认值，也就是<code>index.js</code>，也可以自己定义。下面是关于这些<code>package.json</code>中参数的<a href="https://docs.npmjs.com/getting-started/using-a-package.json" target="_blank" rel="noopener">详细介绍</a>。</p>
 <blockquote>
@@ -658,8 +449,6 @@
 <li>译者：Yuqing Xia</li>
 </ul>
 
-          
-        
       
     </div>
 
@@ -677,14 +466,40 @@
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/npm/" rel="tag"># npm</a>
+          
+            <a href="/tags/node/" rel="tag"># node</a>
+          
+            <a href="/tags/package/" rel="tag"># package</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/30/译：如何更新package以及更新规则/" rel="prev" title="译：如何更新package以及更新规则">
+                译：如何更新package以及更新规则 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -694,14 +509,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -722,8 +538,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -800,6 +625,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地创建"><span class="nav-number">1.</span> <span class="nav-text">本地创建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置文件package-json"><span class="nav-number">1.1.</span> <span class="nav-text">配置文件package.json</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#入口文件"><span class="nav-number">1.2.</span> <span class="nav-text">入口文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Module发布"><span class="nav-number">2.</span> <span class="nav-text">Module发布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备工作"><span class="nav-number">2.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回顾检查"><span class="nav-number">2.2.</span> <span class="nav-text">回顾检查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发布"><span class="nav-number">2.3.</span> <span class="nav-text">发布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证"><span class="nav-number">2.4.</span> <span class="nav-text">验证</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -937,6 +778,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
 
   
 
