@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/tree-32-logo.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/tree-16-logo.png?v=6.4.0">
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="StubStub的官方介绍：  Test stubs are functions (spies) with pre-programmed behavior.They support the full test spy API in addition to methods which can be used to alter the stub’s behavior.As spies, stubs c">
+<meta name="keywords" content="sinon,stub">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sinon stub">
+<meta property="og:url" content="http://yoursite.com/2018/09/07/sinon-stub/index.html">
+<meta property="og:site_name" content="Yuqing Xia&#39;s Blog">
+<meta property="og:description" content="StubStub的官方介绍：  Test stubs are functions (spies) with pre-programmed behavior.They support the full test spy API in addition to methods which can be used to alter the stub’s behavior.As spies, stubs c">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-07T04:21:30.692Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sinon stub">
+<meta name="twitter:description" content="StubStub的官方介绍：  Test stubs are functions (spies) with pre-programmed behavior.They support the full test spy API in addition to methods which can be used to alter the stub’s behavior.As spies, stubs c">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/07/sinon-stub/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>sinon stub | Yuqing Xia's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yuqing Xia's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/sinon-stub/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yuqing xia">
+      <meta itemprop="description" content="this is a description">
+      <meta itemprop="image" content="/images/my_logo.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuqing Xia's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">sinon stub
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-07 12:17:30 / Modified: 12:21:30" itemprop="dateCreated datePublished" datetime="2018-09-07T12:17:30+08:00">2018-09-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/sinon/" itemprop="url" rel="index"><span itemprop="name">sinon</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Stub"><a href="#Stub" class="headerlink" title="Stub"></a>Stub</h3><p>Stub的官方介绍：</p>
+<blockquote>
+<p>Test stubs are functions (spies) with pre-programmed behavior.<br>They support the full test spy API in addition to methods which can be used to alter the stub’s behavior.<br>As spies, stubs can be either anonymous, or wrap existing functions. When wrapping an existing function with a stub, the original function is not called.</p>
+</blockquote>
+<p>翻译：stubs 是具有预编程行为的函数，他们不仅支持 spy 的所有 API，还能操作目标函数的行为（可以理解为彻底替换目标函数），换句话说，当你使用spy，原始的函数依然会被调用，但如果使用stub，原始函数就不会被执行了。<br>同 spy 相同，他既可以为匿名函数，也能去封装监听已有的函数。<strong>与 spy 不同的是，当封装监听已有的函数时，原函数并不会被调用</strong>。</p>
+<p>对于 stub 的使用场景：</p>
+<ul>
+<li>希望阻止一个方法被直接调用，如网络请求等耗时操作，或其它测试变复杂或慢外部函数，使用 stub 对其进行替换，避免测试中的耗时操作；</li>
+<li>在测试中控制一个函数的行为，以强制代码沿特定路径执行，使用 stub 替换该函数的输出，进而根据函数的响应来触发不同的代码流程；</li>
+<li>测试不寻常的条件，如抛出异常，使用 stub 抛出异常；</li>
+</ul>
+<h4 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h4><p>Stub 和 spy 一样，可以代替匿名函数，如下所示：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sinon <span class="keyword">from</span> <span class="string">'sinon'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; call &#125; <span class="keyword">from</span> <span class="string">'./user'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> getNameStub = sinon.stub();</span><br><span class="line"><span class="keyword">const</span> name = call(getNameStub);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'name: '</span>, name);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'call time: '</span>, getNameStub.callCount);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'args: '</span>, getNameStub.firstCall.args);</span><br></pre></td></tr></table></figure></p>
+<p>运行结果为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name:  undefined</span><br><span class="line">call time:  1</span><br><span class="line">args:  [ <span class="string">'yuqing'</span> ]</span><br></pre></td></tr></table></figure></p>
+<p>结果同 spy ，这一用法与 spy 完全相同，但是 stubs 来替换存在的函数更有意义。</p>
+<h4 id="替换已有函数"><a href="#替换已有函数" class="headerlink" title="替换已有函数"></a>替换已有函数</h4><p>对比 spy 会真实运行存在的函数，stub 并不会执行函数的具体内容。这一特性使得 stub 能更好的替代一些耗时操作，比如网络请求等。<br>下面直接看例子，其中<code>sleep</code>函数为延时函数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sinon <span class="keyword">from</span> <span class="string">'sinon'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sleep</span>(<span class="params">delay</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> start = (<span class="keyword">new</span> <span class="built_in">Date</span>()).getTime();</span><br><span class="line">  <span class="keyword">while</span> ((<span class="keyword">new</span> <span class="built_in">Date</span>()).getTime() - start &lt; delay) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  setName: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    sleep(<span class="number">5000</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'call the real function and name is:'</span>, name);</span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> setNameStub = sinon.stub(user, <span class="string">'setName'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'before:'</span>, <span class="built_in">Date</span>.now());</span><br><span class="line"><span class="keyword">const</span> name = user.setName(<span class="string">'yuqing'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'after:'</span>, <span class="built_in">Date</span>.now());</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'call count:'</span>, setNameStub.callCount);</span><br></pre></td></tr></table></figure>
+<p>打印运行结果为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">before: 1536215186994</span><br><span class="line">after: 1536215186996</span><br><span class="line">call count: 1</span><br></pre></td></tr></table></figure></p>
+<p>我们可以看到调用函数前后只相隔 2ms 这基本就是代码运行间隔而已，而且没有打印<code>setName</code>中的内容，说明 stub 是直接替代了对应的函数，并未实际运行函数内部逻辑。</p>
+<p>下面我加一个 spy 的对比就更明显了，前面内容相同，只是将 <code>stub</code> 改为 <code>spy</code>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> setNameSpy = sinon.spy(user, <span class="string">'setName'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'before:'</span>, <span class="built_in">Date</span>.now());</span><br><span class="line">user.setName(<span class="string">'xia'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'after:'</span>, <span class="built_in">Date</span>.now());</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'call count:'</span>, setNameSpy.callCount);</span><br></pre></td></tr></table></figure></p>
+<p>运行打印结果为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">before: 1536215604850</span><br><span class="line">call the real <span class="keyword">function</span> and name is: xia</span><br><span class="line">after: 1536215609852</span><br><span class="line">call count: 1</span><br></pre></td></tr></table></figure></p>
+<p>很显然，使用 spy 会实际运行被替代函数的内部逻辑，像<code>sleep</code>这样的延时操作也会运行，而这样的延时对于实际测试是不需要的。所以，当我们需要验证的函数内部是存在耗时或不可控操作时，为了减少测试的复杂度，那就选择 stub。</p>
+<p>最后，同样，该形式的 stub 在测试结束后也是需要 <code>restore</code>释放的，<code>restore</code>之后对应的被替代函数将能恢复正常运行，不要忘了。</p>
+<h4 id="代理返回值和抛出异常"><a href="#代理返回值和抛出异常" class="headerlink" title="代理返回值和抛出异常"></a>代理返回值和抛出异常</h4><p>stub 不仅能代理函数调用，还能代理函数调用后的返回值和异常的抛出，这一点能为我们验证内部逻辑提供有力的支持。</p>
+<h5 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h5><p>下面直接给例子，延时函数和<code>setName</code>函数同上：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> setNameStub = sinon.stub(user, <span class="string">'setName'</span>).returns(<span class="string">'fake name'</span>);</span><br><span class="line"><span class="keyword">const</span> name = user.setName(<span class="string">'yuqing'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'call count:'</span>, setNameStub.callCount);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'name:'</span>, name);</span><br><span class="line"></span><br><span class="line">setNameStub.restore();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'========== restore =========='</span>);</span><br><span class="line"><span class="keyword">const</span> realName = user.setName(<span class="string">'yuqing'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'name:'</span>, realName);</span><br></pre></td></tr></table></figure></p>
+<p>结果打印为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">call count: 1</span><br><span class="line">name: fake name</span><br><span class="line">========== restore ==========</span><br><span class="line">call the real <span class="keyword">function</span> and name is: yuqing</span><br><span class="line">name: yuqing</span><br></pre></td></tr></table></figure></p>
+<p>这里我们可以看到当我们添加了 stub 函数的 <code>returns</code> 参数为<code>fake name</code>后，即使传入的参数为<code>yuqing</code>，但是运行函数得到的返回值仍旧是<code>fake name</code>，当<code>restore</code>后恢复正常。<br>这一用法在测试一些内部逻辑较多的函数时很有用的，利用 stub 去 mock 该函数中的部分小模块的返回值，进而完成整个函数流程的测试。</p>
+<p><strong>补充</strong><br>判断函数内部的某个函数的调用情况可以如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sinon <span class="keyword">from</span> <span class="string">'sinon'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;expect&#125; <span class="keyword">from</span> <span class="string">'chai'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  setAge: <span class="function"><span class="keyword">function</span> (<span class="params">age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (age &lt; <span class="number">5</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'lower then 5'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  call: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.setAge(<span class="number">10</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> setStub = sinon.stub(user, <span class="string">'setAge'</span>);</span><br><span class="line">user.call();</span><br><span class="line">sinon.assert.calledWith(setStub, <span class="number">10</span>);</span><br></pre></td></tr></table></figure></p>
+<p>其中<code>calledWith(func, ...params)</code>用于判断函数<code>func</code>在被调用时<code>params</code>是否正确。</p>
+<h5 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h5><p>stub 可以代理函数抛出异常，直接看代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sinon <span class="keyword">from</span> <span class="string">'sinon'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;expect&#125; <span class="keyword">from</span> <span class="string">'chai'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  setAge: <span class="function"><span class="keyword">function</span> (<span class="params">age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (age &lt; <span class="number">5</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'lower then 5'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> expectedError = <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'lower then 5'</span>);</span><br><span class="line"><span class="keyword">let</span> setAgeStub = sinon.stub(user, <span class="string">'setAge'</span>).throws(expectedError);</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123; user.setAge(<span class="number">10</span>) &#125; <span class="keyword">catch</span> (e) &#123;&#125;</span><br><span class="line"></span><br><span class="line">expect(setAgeStub).to.throw(expectedError);</span><br></pre></td></tr></table></figure></p>
+<p><code>setAge</code>方法在<code>age&lt;5</code>时会抛出异常，这里我们使用 <code>stub.throws(Error)</code>的形式让代理函数<code>setAgeStub</code>始终抛出异常。显然调用函数<code>user.setAge(10)</code>正常情况下是不会抛出异常的，但是在<code>setAgeStub</code>的代理下，在函数在调用时始终都会抛出异常。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/sinon/" rel="tag"># sinon</a>
+          
+            <a href="/tags/stub/" rel="tag"># stub</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/03/Hexo-主题设置及相关/" rel="next" title="Hexo 主题设置及相关">
+                <i class="fa fa-chevron-left"></i> Hexo 主题设置及相关
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/07/sinon-spy/" rel="prev" title="sinon spy">
+                sinon spy <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTQ3My8xNjAwMA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/my_logo.gif"
+                alt="yuqing xia" />
+            
+              <p class="site-author-name" itemprop="name">yuqing xia</p>
+              <p class="site-description motion-element" itemprop="description">this is a description</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/yqxiaxia" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stub"><span class="nav-number">1.</span> <span class="nav-text">Stub</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#匿名函数"><span class="nav-number">1.1.</span> <span class="nav-text">匿名函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#替换已有函数"><span class="nav-number">1.2.</span> <span class="nav-text">替换已有函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代理返回值和抛出异常"><span class="nav-number">1.3.</span> <span class="nav-text">代理返回值和抛出异常</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#返回值"><span class="nav-number">1.3.1.</span> <span class="nav-text">返回值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#异常"><span class="nav-number">1.3.2.</span> <span class="nav-text">异常</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yuqing xia</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
