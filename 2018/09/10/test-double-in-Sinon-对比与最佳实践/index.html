@@ -104,25 +104,25 @@
 
 
 
-  <meta name="description" content="译：npm package的域域（scopes）通常就是将相关的 package 进行分组，然后分别创建命名空间去管理，就像是为这些 package 创建了一个域。更多关于 npm 域的定义可以查看npm scopes。 如果一个 package 的包名以@符号开头，就说明这是一个被界定域名的 package ，称为scoped package，这个 scope 定义在@和/中间。例如， 1@sc">
-<meta name="keywords" content="npm,package,node">
+  <meta name="description" content="首先，这里先解释一下 test double 的含义，下面引用维基百科的说法：  In automated unit testing, it may be necessary to use objects or procedures that look and behave like their release-intended counterparts, but are actually sim">
+<meta name="keywords" content="sinon,test double">
 <meta property="og:type" content="article">
-<meta property="og:title" content="译：npm package的域">
-<meta property="og:url" content="http://yoursite.com/2018/09/07/译：npm-package的域/index.html">
+<meta property="og:title" content="test double in Sinon 对比与最佳实践">
+<meta property="og:url" content="http://yoursite.com/2018/09/10/test-double-in-Sinon-对比与最佳实践/index.html">
 <meta property="og:site_name" content="Yuqing Xia&#39;s Blog">
-<meta property="og:description" content="译：npm package的域域（scopes）通常就是将相关的 package 进行分组，然后分别创建命名空间去管理，就像是为这些 package 创建了一个域。更多关于 npm 域的定义可以查看npm scopes。 如果一个 package 的包名以@符号开头，就说明这是一个被界定域名的 package ，称为scoped package，这个 scope 定义在@和/中间。例如， 1@sc">
+<meta property="og:description" content="首先，这里先解释一下 test double 的含义，下面引用维基百科的说法：  In automated unit testing, it may be necessary to use objects or procedures that look and behave like their release-intended counterparts, but are actually sim">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-07T04:24:35.061Z">
+<meta property="og:updated_time" content="2018-09-10T06:38:54.191Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="译：npm package的域">
-<meta name="twitter:description" content="译：npm package的域域（scopes）通常就是将相关的 package 进行分组，然后分别创建命名空间去管理，就像是为这些 package 创建了一个域。更多关于 npm 域的定义可以查看npm scopes。 如果一个 package 的包名以@符号开头，就说明这是一个被界定域名的 package ，称为scoped package，这个 scope 定义在@和/中间。例如， 1@sc">
+<meta name="twitter:title" content="test double in Sinon 对比与最佳实践">
+<meta name="twitter:description" content="首先，这里先解释一下 test double 的含义，下面引用维基百科的说法：  In automated unit testing, it may be necessary to use objects or procedures that look and behave like their release-intended counterparts, but are actually sim">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/07/译：npm-package的域/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/10/test-double-in-Sinon-对比与最佳实践/"/>
 
 
 
@@ -132,7 +132,7 @@
   };
 </script>
 
-  <title>译：npm package的域 | Yuqing Xia's Blog</title>
+  <title>test double in Sinon 对比与最佳实践 | Yuqing Xia's Blog</title>
   
 
 
@@ -293,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/译：npm-package的域/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/10/test-double-in-Sinon-对比与最佳实践/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yuqing xia">
@@ -310,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">译：npm package的域
+          <h1 class="post-title" itemprop="name headline">test double in Sinon 对比与最佳实践
               
             
           </h1>
@@ -335,7 +335,7 @@
                 
               
 
-              <time title="Created: 2018-09-07 12:23:36 / Modified: 12:24:35" itemprop="dateCreated datePublished" datetime="2018-09-07T12:23:36+08:00">2018-09-07</time>
+              <time title="Created: 2018-09-10 14:36:48 / Modified: 14:38:54" itemprop="dateCreated datePublished" datetime="2018-09-10T14:36:48+08:00">2018-09-10</time>
             
 
             
@@ -357,7 +357,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/npm-package/" itemprop="url" rel="index"><span itemprop="name">npm package</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/sinon/" itemprop="url" rel="index"><span itemprop="name">sinon</span></a></span>
 
                 
                 
@@ -391,32 +391,65 @@
       
 
       
-        <h2 id="译：npm-package的域"><a href="#译：npm-package的域" class="headerlink" title="译：npm package的域"></a>译：npm package的域</h2><p>域（scopes）通常就是将相关的 package 进行分组，然后分别创建命名空间去管理，就像是为这些 package 创建了一个域。更多关于 npm 域的定义可以查看<a href="https://docs.npmjs.com/misc/scope" target="_blank" rel="noopener">npm scopes</a>。</p>
-<p>如果一个 package 的包名以<code>@</code>符号开头，就说明这是一个被界定域名的 package ，称为<code>scoped package</code>，这个 scope 定义在<code>@</code>和<code>/</code>中间。例如，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@scope/project-name</span><br></pre></td></tr></table></figure>
-<p>每一个npm用户都能拥有自己的 scope ，例如，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@username/project-name</span><br></pre></td></tr></table></figure>
-<p>npm组织也会拥有组织的 scope ，例如，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@orgname/project-name</span><br></pre></td></tr></table></figure></p>
-<p>更多关于 npm 域的信息可以参考<a href="https://docs.npmjs.com/misc/scope#publishing-public-scoped-packages-to-the-public-npm-registry" target="_blank" rel="noopener">CLI documentation</a>。</p>
-<h3 id="初始化-scoped-package"><a href="#初始化-scoped-package" class="headerlink" title="初始化 scoped package"></a>初始化 scoped package</h3><p>创建一个 scoped package ，你可以简单通过命名包名实现，例如，</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"name"</span>: <span class="string">"@username/project-name"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果你使用<code>npm init</code>进行初始化，那么你可以通过以下命令设置域名，例如，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init --scope=username</span><br></pre></td></tr></table></figure>
-<p>如果你需要多次使用同一个域名，你可与将其作为参数添加到<code>.npmrc</code>文件中，例如，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set scope username</span><br></pre></td></tr></table></figure>
-<h3 id="发布-scoped-package"><a href="#发布-scoped-package" class="headerlink" title="发布 scoped package"></a>发布 scoped package</h3><p>默认情况下，scoped package 是私有的，如果想要发布私有的包，你需要付费用户。<br>但是，发布公有的 scoped package 是免费的，在发布公有 scoped package 时需要设置命令中的参数，后续发布也需要保留这个参数，如下，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish --access=public</span><br></pre></td></tr></table></figure>
-<h3 id="使用-scoped-package"><a href="#使用-scoped-package" class="headerlink" title="使用 scoped package"></a>使用 scoped package</h3><p>引用 scoped package 时，需要将 scope 添加到引用的包名中，例如在<code>package.json</code>文件中，<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"@username/project-name"</span>: <span class="string">"^1.0.0"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>添加以及引用，如下，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install @username/project-name --save</span><br><span class="line">var projectName = require(&quot;@username/project-name&quot;)</span><br></pre></td></tr></table></figure>
-<p>更多的关于私有 scoped package 的信息，可以访问<a href="https://docs.npmjs.com/private-modules/intro" target="_blank" rel="noopener">private module</a></p>
-<p><strong>相关信息</strong></p>
-<ul>
-<li>原文地址：<a href="https://docs.npmjs.com/getting-started/scoped-packages" target="_blank" rel="noopener">How to Work with Scoped Packages</a></li>
-<li>译文出自：TWNTF</li>
-<li>译者：Yuqing Xia</li>
-<li>时间：2018.08.16</li>
+        <p>首先，这里先解释一下 test double 的含义，下面引用维基百科的说法：</p>
+<blockquote>
+<p>In automated unit testing, it may be necessary to use objects or procedures that look and behave like their release-intended counterparts, but are actually simplified versions that reduce the complexity and facilitate testing. A test double is a generic (meta) term used for these objects or procedures.</p>
+</blockquote>
+<p>翻译来说就是，在自动化单元测试中，我们常常需要去测试一些复杂度高的对象或过程，为了减少测试中的复杂度，这时有必要引入一个对象或者过程去进行模拟，其行为和前者相似，但实际上是会简单很多。test double 就是这些简化的对象或过程的总称，也是常用术语。<br>其实换句人话说，就是我们常说的 mock 一个对象，去模拟一个行为或方法。Test Double是一个模拟对象，在代码中模拟系统的另一个对象，方便测试。我们常见的 Stub，Mock，Fake 都属于 test double。</p>
+<h4 id="spy-stub-mock-对比"><a href="#spy-stub-mock-对比" class="headerlink" title="spy/stub/mock 对比"></a>spy/stub/mock 对比</h4><ul>
+<li><p><strong>spy</strong><br>用于<strong>监视</strong>一个<strong>函数</strong>的调用情况，相当于给该函数增加一层 wrapper，被监视的函数在 wrapper 下层，最终会被调用。</p>
+</li>
+<li><p><strong>stub</strong><br>用于<strong>替代</strong>一个<strong>函数</strong>的调用，往往用于目标函数调用场景复杂的情况，stub 是目标函数的替身，不会真正被调用。<br>stub 是一种 spy， stub 支持所有的 spy API， 另外支持一套可以改变 stub 行为的操作。<br>主要使用场景：</p>
+</li>
 </ul>
+<ol>
+<li>控制指定方法执行指定的路径用于指定的场景测试， 比如强制要求某方法返回特定值或抛出异常；</li>
+<li>避免指定方法真正调用， 因为在单元测试中这个真正操作的现实条件并不具备，比如和服务器交互的网络操作。</li>
+</ol>
+<ul>
+<li><strong>mock</strong><br>用于<strong>监视</strong>一个<strong>object</strong>的活动，如目标object的方法调用等，object的mock收到的数据或是调用并没有真正执行， 一切针对mock的调用都是假的，需要替换某个对象的多个方法，你就应该使用mocks。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">目标对象</th>
+<th style="text-align:center">操作是否真正执行</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">spy</td>
+<td style="text-align:center">函数</td>
+<td style="text-align:center">执行</td>
+<td style="text-align:center">监视, 记录函数调用, 并提供类似断言的执行判断API</td>
+</tr>
+<tr>
+<td style="text-align:center">stub</td>
+<td style="text-align:center">函数</td>
+<td style="text-align:center">不执行</td>
+<td style="text-align:center">模拟函数调用, 替换函数的行为</td>
+</tr>
+<tr>
+<td style="text-align:center">mock</td>
+<td style="text-align:center">对象</td>
+<td style="text-align:center">不执行</td>
+<td style="text-align:center">模拟对象上的操作</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Sinon-最佳实践"><a href="#Sinon-最佳实践" class="headerlink" title="Sinon 最佳实践"></a>Sinon 最佳实践</h4><p>这里有个使用 sinon 的很重要的最佳实践，不管是使用spies，stubs还是mocks都应该牢记。<br>根据前述的 test double 概念，我们可以知道 sinon 中的 spy，stub，mock 都为 test double，如果你用 test doubles 替换了一个存在的函数，则可以使用<code>sinon.test()</code>。</p>
+<p>前面的例子中，我们使用<code>stub.restore()</code>或<code>mock.restore()</code>来在我们使用完后清理它们。这很有必要，否则 test doubles 将持续有效，这将可能影响其他的测试项并导致错误。但是，直接使用<code>restore()</code>可能很难，有可能因为某个异常导致<code>restore()</code>没有被调用！</p>
+<p>当然我们可以通过 try catch 的方法，在 finally 块中调用<code>restore()</code>来确保一切正常，但是可想而知很麻烦，代码也不会很好看。<br>或者，一个更好的做法是我们可以将测试体写在<code>sinon.test()</code>中，需要注意的是，在sinon v2.0.0以后，去掉了<code>sinon.test()</code>方法，取而代之的是<a href="https://github.com/sinonjs/sinon-test#usage" target="_blank" rel="noopener">sinon-test</a>，其release原文：</p>
+<blockquote>
+<p>Remove sinon.test() and sinon.testCase (now in sinon-test module.)</p>
+</blockquote>
+<p>下面是一个最佳实践的简单例子，<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sinon <span class="keyword">from</span> <span class="string">'sinon'</span>;</span><br><span class="line"><span class="keyword">import</span> sinonTestFactory <span class="keyword">from</span> <span class="string">'sinon-test'</span>;</span><br><span class="line"><span class="keyword">const</span> sinonTest = sinonTestFactory(sinon);</span><br><span class="line"></span><br><span class="line">describe(<span class="string">"mock test"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> user = &#123;</span><br><span class="line">    setName: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> name;</span><br><span class="line">    &#125;,</span><br><span class="line">    call: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.setName(<span class="string">'xia'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  it(<span class="string">'use sinon test'</span>, sinonTest(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> userMock = <span class="keyword">this</span>.mock(user);</span><br><span class="line">    userMock.expects(<span class="string">"setName"</span>).once().withArgs(<span class="string">'xia'</span>);</span><br><span class="line"></span><br><span class="line">    user.call();</span><br><span class="line"></span><br><span class="line">    userMock.verify();</span><br><span class="line">  &#125;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>上述代码中，<code>it()</code>的第二个参数，它被<code>sinonTest()</code>包裹。此外注意我们使用<code>this.stub()</code>代替了<code>sinon.stub()</code>。</p>
+<p>使用<code>sinonTest()</code>包裹测试体可以让我们使用 sinon 沙盒特性，其允许我们使用<code>this.spy()</code>，<code>this.stub()</code>和<code>this.mock()</code>来创建 spies， stubs 和 mocks。任何你在沙盒中创建的 test doubles 都会自动被清理，所以最后都无需进行<code>restore</code>去释放 test doubles。</p>
+<p>日期： 2018-09-07~2018-09-10</p>
+<p>参考：<br><a href="https://www.sitepoint.com/sinon-tutorial-javascript-testing-mocks-spies-stubs/" target="_blank" rel="noopener">Sinon Tutorial: JavaScript Testing with Mocks, Spies &amp; Stubs</a><br><a href="https://zhongfox.github.io/2017/03/16/nodejs-unit-test/" target="_blank" rel="noopener">spy &amp; stub &amp; mock 对比以及api</a></p>
 
       
     </div>
@@ -437,11 +470,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/npm/" rel="tag"># npm</a>
+            <a href="/tags/sinon/" rel="tag"># sinon</a>
           
-            <a href="/tags/package/" rel="tag"># package</a>
-          
-            <a href="/tags/node/" rel="tag"># node</a>
+            <a href="/tags/test-double/" rel="tag"># test double</a>
           
         </div>
       
@@ -454,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/07/sinon-spy/" rel="next" title="sinon spy">
-                <i class="fa fa-chevron-left"></i> sinon spy
+              <a href="/2018/09/10/sinon-mock/" rel="next" title="sinon mock">
+                <i class="fa fa-chevron-left"></i> sinon mock
               </a>
             
           </div>
@@ -464,8 +495,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/10/sinon-mock/" rel="prev" title="sinon mock">
-                sinon mock <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/10/sinon-fake-time/" rel="prev" title="sinon fake time">
+                sinon fake time <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -650,7 +681,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#译：npm-package的域"><span class="nav-number">1.</span> <span class="nav-text">译：npm package的域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化-scoped-package"><span class="nav-number">1.1.</span> <span class="nav-text">初始化 scoped package</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布-scoped-package"><span class="nav-number">1.2.</span> <span class="nav-text">发布 scoped package</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-scoped-package"><span class="nav-number">1.3.</span> <span class="nav-text">使用 scoped package</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#spy-stub-mock-对比"><span class="nav-number">1.</span> <span class="nav-text">spy/stub/mock 对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sinon-最佳实践"><span class="nav-number">2.</span> <span class="nav-text">Sinon 最佳实践</span></a></li></ol></div>
             
 
           </div>

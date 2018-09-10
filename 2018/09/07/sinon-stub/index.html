@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="Yuqing Xia&#39;s Blog">
 <meta property="og:description" content="StubStub的官方介绍：  Test stubs are functions (spies) with pre-programmed behavior.They support the full test spy API in addition to methods which can be used to alter the stub’s behavior.As spies, stubs c">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-07T04:21:30.692Z">
+<meta property="og:updated_time" content="2018-09-07T07:34:49.603Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sinon stub">
 <meta name="twitter:description" content="StubStub的官方介绍：  Test stubs are functions (spies) with pre-programmed behavior.They support the full test spy API in addition to methods which can be used to alter the stub’s behavior.As spies, stubs c">
@@ -335,7 +335,7 @@
                 
               
 
-              <time title="Created: 2018-09-07 12:17:30 / Modified: 12:21:30" itemprop="dateCreated datePublished" datetime="2018-09-07T12:17:30+08:00">2018-09-07</time>
+              <time title="Created: 2018-09-07 12:17:30 / Modified: 15:34:49" itemprop="dateCreated datePublished" datetime="2018-09-07T12:17:30+08:00">2018-09-07</time>
             
 
             
@@ -421,6 +421,7 @@
 <p>其中<code>calledWith(func, ...params)</code>用于判断函数<code>func</code>在被调用时<code>params</code>是否正确。</p>
 <h5 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h5><p>stub 可以代理函数抛出异常，直接看代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sinon <span class="keyword">from</span> <span class="string">'sinon'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;expect&#125; <span class="keyword">from</span> <span class="string">'chai'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  setAge: <span class="function"><span class="keyword">function</span> (<span class="params">age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (age &lt; <span class="number">5</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'lower then 5'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> expectedError = <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'lower then 5'</span>);</span><br><span class="line"><span class="keyword">let</span> setAgeStub = sinon.stub(user, <span class="string">'setAge'</span>).throws(expectedError);</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123; user.setAge(<span class="number">10</span>) &#125; <span class="keyword">catch</span> (e) &#123;&#125;</span><br><span class="line"></span><br><span class="line">expect(setAgeStub).to.throw(expectedError);</span><br></pre></td></tr></table></figure></p>
 <p><code>setAge</code>方法在<code>age&lt;5</code>时会抛出异常，这里我们使用 <code>stub.throws(Error)</code>的形式让代理函数<code>setAgeStub</code>始终抛出异常。显然调用函数<code>user.setAge(10)</code>正常情况下是不会抛出异常的，但是在<code>setAgeStub</code>的代理下，在函数在调用时始终都会抛出异常。</p>
+<p>日期：2018-09-05</p>
 
       
     </div>
@@ -547,7 +548,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -601,7 +602,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

@@ -293,6 +293,509 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/10/sinon-fake-time/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yuqing xia">
+      <meta itemprop="description" content="this is a description">
+      <meta itemprop="image" content="/images/my_logo.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuqing Xia's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/10/sinon-fake-time/" itemprop="url">
+                  sinon fake time
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-10 14:40:39 / Modified: 14:41:29" itemprop="dateCreated datePublished" datetime="2018-09-10T14:40:39+08:00">2018-09-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/sinon/" itemprop="url" rel="index"><span itemprop="name">sinon</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Sinon fake time当我们的代码中存在与时间相关操作时，如setTimeout的使用，在测试中，我们需要模拟时钟，sinon 为我们提供了useFakeTimers去代替 js 中的时钟。
+直接看例子：1234567891011121314151617import sinon from 'sinon';let finishLoading = false;let clock = sinon.useFakeTimers();console.log('time start:', Date.now());const load = () =&gt; &#123;  setTimeout(() =&gt; &#123;    finishLoading = true;  &#125;, 10000);&#125;;load();console.log('before load:', finishLoading, 'time:', Date.now());clock.tick(10000);console.log('after load:', finishLoading, 'time:',
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/10/sinon-fake-time/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/10/test-double-in-Sinon-对比与最佳实践/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yuqing xia">
+      <meta itemprop="description" content="this is a description">
+      <meta itemprop="image" content="/images/my_logo.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuqing Xia's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/10/test-double-in-Sinon-对比与最佳实践/" itemprop="url">
+                  test double in Sinon 对比与最佳实践
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-10 14:36:48 / Modified: 14:38:54" itemprop="dateCreated datePublished" datetime="2018-09-10T14:36:48+08:00">2018-09-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/sinon/" itemprop="url" rel="index"><span itemprop="name">sinon</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          首先，这里先解释一下 test double 的含义，下面引用维基百科的说法：
+
+In automated unit testing, it may be necessary to use objects or procedures that look and behave like their release-intended counterparts, but are actually simplified versions that reduce the complexity and facilitate testing. A test double is a generic (meta) term used for these objects or procedures.
+
+翻译来说就是，在自动化单元测试中，我们常常需要去测试一些复杂度高的对象或过程，为了减少测试中的复杂度，这时有必要引入一个对象或者过程去进行模拟，其行为和前者相似，但实际上是会简单很多。test double 就是这些简化的对象或过程的总称，也是常用术语。其实换句人话说，就是我们常说的 mock 一个对象，去
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/10/test-double-in-Sinon-对比与最佳实践/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/10/sinon-mock/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yuqing xia">
+      <meta itemprop="description" content="this is a description">
+      <meta itemprop="image" content="/images/my_logo.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuqing Xia's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/10/sinon-mock/" itemprop="url">
+                  sinon mock
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-10 14:35:03 / Modified: 14:39:42" itemprop="dateCreated datePublished" datetime="2018-09-10T14:35:03+08:00">2018-09-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/sinon/" itemprop="url" rel="index"><span itemprop="name">sinon</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Mock 官方介绍：
+
+Mocks (and mock expectations) are fake methods (like spies) with pre-programmed behavior (like stubs) as well as pre-programmed expectations.A mock will fail your test if it is not used as expected.
+
+翻译：Mocks 以及 mock expectations 都是 和 spy 一样的伪装方法，同时他还和 stub 一样具有预编译的行为， 如果mock没有得到期望的结果就会显示测试失败。
+Mocks不同于 stubs，如果你听过mock object这个术语，就是说 sinon 的 mocks 用来替换整个对象，并改变其内部的多个函数行为，而 stubs 是用于替换某个对象里的函数，两者伪装的的对象一个是object另一个是function。
+如果你需要替换某个对象的多个方法，你就应该使用mocks。如果你只是希望替换某个单独的方法，stub更方便。与spies和st
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/10/sinon-mock/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/译：npm-package的域/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -513,12 +1016,24 @@ npm组织也会拥有组织的 scope ，例如，1@orgname/project-name
                 
               
 
-              <time title="Created: 2018-09-07 12:19:30 / Modified: 12:21:27" itemprop="dateCreated datePublished" datetime="2018-09-07T12:19:30+08:00">2018-09-07</time>
+              <time title="Created: 2018-09-07 12:19:30" itemprop="dateCreated datePublished" datetime="2018-09-07T12:19:30+08:00">2018-09-07</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-09-10 14:38:49" itemprop="dateModified" datetime="2018-09-10T14:38:49+08:00">2018-09-10</time>
               
             
           </span>
@@ -683,7 +1198,7 @@ A test spy is a function that records arguments, return value, the value of this
                 
               
 
-              <time title="Created: 2018-09-07 12:17:30 / Modified: 12:21:30" itemprop="dateCreated datePublished" datetime="2018-09-07T12:17:30+08:00">2018-09-07</time>
+              <time title="Created: 2018-09-07 12:17:30 / Modified: 15:34:49" itemprop="dateCreated datePublished" datetime="2018-09-07T12:17:30+08:00">2018-09-07</time>
             
 
             
@@ -1611,7 +2126,7 @@ description： 描述
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1665,7 +2180,13 @@ description： 描述
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

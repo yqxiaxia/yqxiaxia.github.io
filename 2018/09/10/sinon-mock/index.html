@@ -104,25 +104,25 @@
 
 
 
-  <meta name="description" content="译：npm package的域域（scopes）通常就是将相关的 package 进行分组，然后分别创建命名空间去管理，就像是为这些 package 创建了一个域。更多关于 npm 域的定义可以查看npm scopes。 如果一个 package 的包名以@符号开头，就说明这是一个被界定域名的 package ，称为scoped package，这个 scope 定义在@和/中间。例如， 1@sc">
-<meta name="keywords" content="npm,package,node">
+  <meta name="description" content="Mock 官方介绍：  Mocks (and mock expectations) are fake methods (like spies) with pre-programmed behavior (like stubs) as well as pre-programmed expectations.A mock will fail your test if it is not used as">
+<meta name="keywords" content="sinon,mock">
 <meta property="og:type" content="article">
-<meta property="og:title" content="译：npm package的域">
-<meta property="og:url" content="http://yoursite.com/2018/09/07/译：npm-package的域/index.html">
+<meta property="og:title" content="sinon mock">
+<meta property="og:url" content="http://yoursite.com/2018/09/10/sinon-mock/index.html">
 <meta property="og:site_name" content="Yuqing Xia&#39;s Blog">
-<meta property="og:description" content="译：npm package的域域（scopes）通常就是将相关的 package 进行分组，然后分别创建命名空间去管理，就像是为这些 package 创建了一个域。更多关于 npm 域的定义可以查看npm scopes。 如果一个 package 的包名以@符号开头，就说明这是一个被界定域名的 package ，称为scoped package，这个 scope 定义在@和/中间。例如， 1@sc">
+<meta property="og:description" content="Mock 官方介绍：  Mocks (and mock expectations) are fake methods (like spies) with pre-programmed behavior (like stubs) as well as pre-programmed expectations.A mock will fail your test if it is not used as">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-07T04:24:35.061Z">
+<meta property="og:updated_time" content="2018-09-10T06:39:42.121Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="译：npm package的域">
-<meta name="twitter:description" content="译：npm package的域域（scopes）通常就是将相关的 package 进行分组，然后分别创建命名空间去管理，就像是为这些 package 创建了一个域。更多关于 npm 域的定义可以查看npm scopes。 如果一个 package 的包名以@符号开头，就说明这是一个被界定域名的 package ，称为scoped package，这个 scope 定义在@和/中间。例如， 1@sc">
+<meta name="twitter:title" content="sinon mock">
+<meta name="twitter:description" content="Mock 官方介绍：  Mocks (and mock expectations) are fake methods (like spies) with pre-programmed behavior (like stubs) as well as pre-programmed expectations.A mock will fail your test if it is not used as">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/07/译：npm-package的域/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/10/sinon-mock/"/>
 
 
 
@@ -132,7 +132,7 @@
   };
 </script>
 
-  <title>译：npm package的域 | Yuqing Xia's Blog</title>
+  <title>sinon mock | Yuqing Xia's Blog</title>
   
 
 
@@ -293,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/译：npm-package的域/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/10/sinon-mock/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yuqing xia">
@@ -310,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">译：npm package的域
+          <h1 class="post-title" itemprop="name headline">sinon mock
               
             
           </h1>
@@ -335,7 +335,7 @@
                 
               
 
-              <time title="Created: 2018-09-07 12:23:36 / Modified: 12:24:35" itemprop="dateCreated datePublished" datetime="2018-09-07T12:23:36+08:00">2018-09-07</time>
+              <time title="Created: 2018-09-10 14:35:03 / Modified: 14:39:42" itemprop="dateCreated datePublished" datetime="2018-09-10T14:35:03+08:00">2018-09-10</time>
             
 
             
@@ -357,7 +357,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/npm-package/" itemprop="url" rel="index"><span itemprop="name">npm package</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/sinon/" itemprop="url" rel="index"><span itemprop="name">sinon</span></a></span>
 
                 
                 
@@ -391,32 +391,22 @@
       
 
       
-        <h2 id="译：npm-package的域"><a href="#译：npm-package的域" class="headerlink" title="译：npm package的域"></a>译：npm package的域</h2><p>域（scopes）通常就是将相关的 package 进行分组，然后分别创建命名空间去管理，就像是为这些 package 创建了一个域。更多关于 npm 域的定义可以查看<a href="https://docs.npmjs.com/misc/scope" target="_blank" rel="noopener">npm scopes</a>。</p>
-<p>如果一个 package 的包名以<code>@</code>符号开头，就说明这是一个被界定域名的 package ，称为<code>scoped package</code>，这个 scope 定义在<code>@</code>和<code>/</code>中间。例如，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@scope/project-name</span><br></pre></td></tr></table></figure>
-<p>每一个npm用户都能拥有自己的 scope ，例如，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@username/project-name</span><br></pre></td></tr></table></figure>
-<p>npm组织也会拥有组织的 scope ，例如，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@orgname/project-name</span><br></pre></td></tr></table></figure></p>
-<p>更多关于 npm 域的信息可以参考<a href="https://docs.npmjs.com/misc/scope#publishing-public-scoped-packages-to-the-public-npm-registry" target="_blank" rel="noopener">CLI documentation</a>。</p>
-<h3 id="初始化-scoped-package"><a href="#初始化-scoped-package" class="headerlink" title="初始化 scoped package"></a>初始化 scoped package</h3><p>创建一个 scoped package ，你可以简单通过命名包名实现，例如，</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"name"</span>: <span class="string">"@username/project-name"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果你使用<code>npm init</code>进行初始化，那么你可以通过以下命令设置域名，例如，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init --scope=username</span><br></pre></td></tr></table></figure>
-<p>如果你需要多次使用同一个域名，你可与将其作为参数添加到<code>.npmrc</code>文件中，例如，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set scope username</span><br></pre></td></tr></table></figure>
-<h3 id="发布-scoped-package"><a href="#发布-scoped-package" class="headerlink" title="发布 scoped package"></a>发布 scoped package</h3><p>默认情况下，scoped package 是私有的，如果想要发布私有的包，你需要付费用户。<br>但是，发布公有的 scoped package 是免费的，在发布公有 scoped package 时需要设置命令中的参数，后续发布也需要保留这个参数，如下，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish --access=public</span><br></pre></td></tr></table></figure>
-<h3 id="使用-scoped-package"><a href="#使用-scoped-package" class="headerlink" title="使用 scoped package"></a>使用 scoped package</h3><p>引用 scoped package 时，需要将 scope 添加到引用的包名中，例如在<code>package.json</code>文件中，<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"@username/project-name"</span>: <span class="string">"^1.0.0"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>添加以及引用，如下，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install @username/project-name --save</span><br><span class="line">var projectName = require(&quot;@username/project-name&quot;)</span><br></pre></td></tr></table></figure>
-<p>更多的关于私有 scoped package 的信息，可以访问<a href="https://docs.npmjs.com/private-modules/intro" target="_blank" rel="noopener">private module</a></p>
-<p><strong>相关信息</strong></p>
-<ul>
-<li>原文地址：<a href="https://docs.npmjs.com/getting-started/scoped-packages" target="_blank" rel="noopener">How to Work with Scoped Packages</a></li>
-<li>译文出自：TWNTF</li>
-<li>译者：Yuqing Xia</li>
-<li>时间：2018.08.16</li>
-</ul>
+        <p>Mock 官方介绍：</p>
+<blockquote>
+<p>Mocks (and mock expectations) are fake methods (like spies) with pre-programmed behavior (like stubs) as well as pre-programmed expectations.<br>A mock will fail your test if it is not used as expected.</p>
+</blockquote>
+<p>翻译：Mocks 以及 mock expectations 都是 和 spy 一样的伪装方法，同时他还和 stub 一样具有预编译的行为， 如果mock没有得到期望的结果就会显示测试失败。</p>
+<p>Mocks不同于 stubs，如果你听过<code>mock object</code>这个术语，就是说 sinon 的 mocks 用来替换整个<strong>对象</strong>，并改变其内部的多个函数行为，而 stubs 是用于替换某个对象里的函数，两者伪装的的对象一个是<code>object</code>另一个是<code>function</code>。</p>
+<p>如果你需要替换某个对象的多个方法，你就应该使用mocks。如果你只是希望替换某个单独的方法，stub更方便。与spies和stubs不同，mocks包含内建的断言。当使用mock对象时，你可以定义你期望的结果，你期望的行为。</p>
+<p>这里我们在<code>call</code>方法里设置<code>name</code>和<code>age</code>两种参数，简单测试可以表示为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sinon <span class="keyword">from</span> <span class="string">'sinon'</span>;</span><br><span class="line"></span><br><span class="line">describe(<span class="string">"mock test"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  it(<span class="string">'setName should call once and setAge should call twice'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> user = &#123;</span><br><span class="line">      setName: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">      &#125;,</span><br><span class="line">      setAge: <span class="function"><span class="keyword">function</span> (<span class="params">age</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">      &#125;,</span><br><span class="line">      call: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setName(<span class="string">'xia'</span>);</span><br><span class="line">        <span class="keyword">this</span>.setAge(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">this</span>.setAge(<span class="number">2</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> userMock = sinon.mock(user);</span><br><span class="line">    userMock.expects(<span class="string">"setName"</span>).once().withArgs(<span class="string">'xia'</span>);</span><br><span class="line">    userMock.expects(<span class="string">"setAge"</span>).twice();</span><br><span class="line"></span><br><span class="line">    user.call();</span><br><span class="line"></span><br><span class="line">    userMock.verify();</span><br><span class="line">    userMock.restore();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>运行结果为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ mocha --require babel-core/register src/sinonTest/*.test.js</span><br><span class="line"></span><br><span class="line">  mock <span class="built_in">test</span></span><br><span class="line">    ✓ setName should call once and setAge should call twice</span><br><span class="line"></span><br><span class="line">  1 passing (296ms)</span><br><span class="line"></span><br><span class="line">✨  Done <span class="keyword">in</span> 1.49s.</span><br></pre></td></tr></table></figure></p>
+<p>由此我们可以看到，<code>sinon.mock</code>是对<code>user</code>对象进行了模拟，预先通过内建断言函数定义期望的调用和结果，运行被指定方法，最后通过<code>userMock.verify()</code>对测试结果进行校验，在通过<code>userMock.restore()</code>释放 mock du。补充一点，mock 也不会真实运行被代理的对象方法。</p>
+<p>调用mock对象的<code>mock.expects(something)</code>会创建一个期望值。意味着<code>mock.something()</code>方法期望被调用。出来模拟特定方法以外，每一个我们的期望都可以通过 spy 和 stub 实现。</p>
+<p><strong>补充</strong><br>接下来补充一个返回值的例子，这里其实就和上一篇 stub 返回值的作用是相同的，<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">it(<span class="string">'should call setAge when name is yuqing'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> user = &#123;</span><br><span class="line">      setName: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">      &#125;,</span><br><span class="line">      setAge: <span class="function"><span class="keyword">function</span> (<span class="params">age</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">      &#125;,</span><br><span class="line">      call: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> temp = <span class="keyword">this</span>.setName(<span class="string">'xia'</span>);</span><br><span class="line">        <span class="keyword">if</span> (temp === <span class="string">'yuqing'</span>) &#123;</span><br><span class="line">          <span class="keyword">this</span>.setAge(<span class="number">18</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> userMock = sinon.mock(user);</span><br><span class="line">    userMock.expects(<span class="string">"setName"</span>).once().returns(<span class="string">'yuqing'</span>);</span><br><span class="line">    userMock.expects(<span class="string">"setAge"</span>).once();</span><br><span class="line">    </span><br><span class="line">    user.call();</span><br><span class="line"></span><br><span class="line">    userMock.restore();</span><br><span class="line">    userMock.verify();</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>这里我们直接通过模拟<code>setName</code>方法的返回值为<code>yuqing</code>，进而测试<code>call</code>方法中的<code>if</code>逻辑是否正常，而不用去理会<code>setName</code>中具体做了些什么。</p>
+<p>参考：<br><a href="https://www.sitepoint.com/sinon-tutorial-javascript-testing-mocks-spies-stubs/" target="_blank" rel="noopener">Sinon Tutorial: JavaScript Testing with Mocks, Spies &amp; Stubs</a><br><a href="https://blog.kazaff.me/2016/11/11/%E8%AF%91-Sinon%E5%85%A5%E9%97%A8%EF%BC%9A%E5%88%A9%E7%94%A8Mocks%EF%BC%8CSpies%E5%92%8CStubs%E5%AE%8C%E6%88%90javascript%E6%B5%8B%E8%AF%95/" target="_blank" rel="noopener">翻译</a></p>
+<p>日期：2018-09-07</p>
 
       
     </div>
@@ -437,11 +427,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/npm/" rel="tag"># npm</a>
+            <a href="/tags/sinon/" rel="tag"># sinon</a>
           
-            <a href="/tags/package/" rel="tag"># package</a>
-          
-            <a href="/tags/node/" rel="tag"># node</a>
+            <a href="/tags/mock/" rel="tag"># mock</a>
           
         </div>
       
@@ -454,8 +442,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/07/sinon-spy/" rel="next" title="sinon spy">
-                <i class="fa fa-chevron-left"></i> sinon spy
+              <a href="/2018/09/07/译：npm-package的域/" rel="next" title="译：npm package的域">
+                <i class="fa fa-chevron-left"></i> 译：npm package的域
               </a>
             
           </div>
@@ -464,8 +452,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/10/sinon-mock/" rel="prev" title="sinon mock">
-                sinon mock <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/10/test-double-in-Sinon-对比与最佳实践/" rel="prev" title="test double in Sinon 对比与最佳实践">
+                test double in Sinon 对比与最佳实践 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -516,17 +504,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -640,22 +619,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#译：npm-package的域"><span class="nav-number">1.</span> <span class="nav-text">译：npm package的域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化-scoped-package"><span class="nav-number">1.1.</span> <span class="nav-text">初始化 scoped package</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布-scoped-package"><span class="nav-number">1.2.</span> <span class="nav-text">发布 scoped package</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-scoped-package"><span class="nav-number">1.3.</span> <span class="nav-text">使用 scoped package</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

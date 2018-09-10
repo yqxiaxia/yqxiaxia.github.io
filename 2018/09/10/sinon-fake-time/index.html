@@ -104,25 +104,25 @@
 
 
 
-  <meta name="description" content="译：npm package的域域（scopes）通常就是将相关的 package 进行分组，然后分别创建命名空间去管理，就像是为这些 package 创建了一个域。更多关于 npm 域的定义可以查看npm scopes。 如果一个 package 的包名以@符号开头，就说明这是一个被界定域名的 package ，称为scoped package，这个 scope 定义在@和/中间。例如， 1@sc">
-<meta name="keywords" content="npm,package,node">
+  <meta name="description" content="Sinon fake time当我们的代码中存在与时间相关操作时，如setTimeout的使用，在测试中，我们需要模拟时钟，sinon 为我们提供了useFakeTimers去代替 js 中的时钟。 直接看例子：1234567891011121314151617import sinon from &apos;sinon&apos;;let finishLoading = false;let clock = sinon">
+<meta name="keywords" content="sinon,fake time">
 <meta property="og:type" content="article">
-<meta property="og:title" content="译：npm package的域">
-<meta property="og:url" content="http://yoursite.com/2018/09/07/译：npm-package的域/index.html">
+<meta property="og:title" content="sinon fake time">
+<meta property="og:url" content="http://yoursite.com/2018/09/10/sinon-fake-time/index.html">
 <meta property="og:site_name" content="Yuqing Xia&#39;s Blog">
-<meta property="og:description" content="译：npm package的域域（scopes）通常就是将相关的 package 进行分组，然后分别创建命名空间去管理，就像是为这些 package 创建了一个域。更多关于 npm 域的定义可以查看npm scopes。 如果一个 package 的包名以@符号开头，就说明这是一个被界定域名的 package ，称为scoped package，这个 scope 定义在@和/中间。例如， 1@sc">
+<meta property="og:description" content="Sinon fake time当我们的代码中存在与时间相关操作时，如setTimeout的使用，在测试中，我们需要模拟时钟，sinon 为我们提供了useFakeTimers去代替 js 中的时钟。 直接看例子：1234567891011121314151617import sinon from &apos;sinon&apos;;let finishLoading = false;let clock = sinon">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-07T04:24:35.061Z">
+<meta property="og:updated_time" content="2018-09-10T06:41:29.072Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="译：npm package的域">
-<meta name="twitter:description" content="译：npm package的域域（scopes）通常就是将相关的 package 进行分组，然后分别创建命名空间去管理，就像是为这些 package 创建了一个域。更多关于 npm 域的定义可以查看npm scopes。 如果一个 package 的包名以@符号开头，就说明这是一个被界定域名的 package ，称为scoped package，这个 scope 定义在@和/中间。例如， 1@sc">
+<meta name="twitter:title" content="sinon fake time">
+<meta name="twitter:description" content="Sinon fake time当我们的代码中存在与时间相关操作时，如setTimeout的使用，在测试中，我们需要模拟时钟，sinon 为我们提供了useFakeTimers去代替 js 中的时钟。 直接看例子：1234567891011121314151617import sinon from &apos;sinon&apos;;let finishLoading = false;let clock = sinon">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/07/译：npm-package的域/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/10/sinon-fake-time/"/>
 
 
 
@@ -132,7 +132,7 @@
   };
 </script>
 
-  <title>译：npm package的域 | Yuqing Xia's Blog</title>
+  <title>sinon fake time | Yuqing Xia's Blog</title>
   
 
 
@@ -293,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/译：npm-package的域/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/10/sinon-fake-time/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yuqing xia">
@@ -310,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">译：npm package的域
+          <h1 class="post-title" itemprop="name headline">sinon fake time
               
             
           </h1>
@@ -335,7 +335,7 @@
                 
               
 
-              <time title="Created: 2018-09-07 12:23:36 / Modified: 12:24:35" itemprop="dateCreated datePublished" datetime="2018-09-07T12:23:36+08:00">2018-09-07</time>
+              <time title="Created: 2018-09-10 14:40:39 / Modified: 14:41:29" itemprop="dateCreated datePublished" datetime="2018-09-10T14:40:39+08:00">2018-09-10</time>
             
 
             
@@ -357,7 +357,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/npm-package/" itemprop="url" rel="index"><span itemprop="name">npm package</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/sinon/" itemprop="url" rel="index"><span itemprop="name">sinon</span></a></span>
 
                 
                 
@@ -391,32 +391,14 @@
       
 
       
-        <h2 id="译：npm-package的域"><a href="#译：npm-package的域" class="headerlink" title="译：npm package的域"></a>译：npm package的域</h2><p>域（scopes）通常就是将相关的 package 进行分组，然后分别创建命名空间去管理，就像是为这些 package 创建了一个域。更多关于 npm 域的定义可以查看<a href="https://docs.npmjs.com/misc/scope" target="_blank" rel="noopener">npm scopes</a>。</p>
-<p>如果一个 package 的包名以<code>@</code>符号开头，就说明这是一个被界定域名的 package ，称为<code>scoped package</code>，这个 scope 定义在<code>@</code>和<code>/</code>中间。例如，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@scope/project-name</span><br></pre></td></tr></table></figure>
-<p>每一个npm用户都能拥有自己的 scope ，例如，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@username/project-name</span><br></pre></td></tr></table></figure>
-<p>npm组织也会拥有组织的 scope ，例如，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@orgname/project-name</span><br></pre></td></tr></table></figure></p>
-<p>更多关于 npm 域的信息可以参考<a href="https://docs.npmjs.com/misc/scope#publishing-public-scoped-packages-to-the-public-npm-registry" target="_blank" rel="noopener">CLI documentation</a>。</p>
-<h3 id="初始化-scoped-package"><a href="#初始化-scoped-package" class="headerlink" title="初始化 scoped package"></a>初始化 scoped package</h3><p>创建一个 scoped package ，你可以简单通过命名包名实现，例如，</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"name"</span>: <span class="string">"@username/project-name"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果你使用<code>npm init</code>进行初始化，那么你可以通过以下命令设置域名，例如，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init --scope=username</span><br></pre></td></tr></table></figure>
-<p>如果你需要多次使用同一个域名，你可与将其作为参数添加到<code>.npmrc</code>文件中，例如，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set scope username</span><br></pre></td></tr></table></figure>
-<h3 id="发布-scoped-package"><a href="#发布-scoped-package" class="headerlink" title="发布 scoped package"></a>发布 scoped package</h3><p>默认情况下，scoped package 是私有的，如果想要发布私有的包，你需要付费用户。<br>但是，发布公有的 scoped package 是免费的，在发布公有 scoped package 时需要设置命令中的参数，后续发布也需要保留这个参数，如下，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish --access=public</span><br></pre></td></tr></table></figure>
-<h3 id="使用-scoped-package"><a href="#使用-scoped-package" class="headerlink" title="使用 scoped package"></a>使用 scoped package</h3><p>引用 scoped package 时，需要将 scope 添加到引用的包名中，例如在<code>package.json</code>文件中，<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"@username/project-name"</span>: <span class="string">"^1.0.0"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>添加以及引用，如下，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install @username/project-name --save</span><br><span class="line">var projectName = require(&quot;@username/project-name&quot;)</span><br></pre></td></tr></table></figure>
-<p>更多的关于私有 scoped package 的信息，可以访问<a href="https://docs.npmjs.com/private-modules/intro" target="_blank" rel="noopener">private module</a></p>
-<p><strong>相关信息</strong></p>
-<ul>
-<li>原文地址：<a href="https://docs.npmjs.com/getting-started/scoped-packages" target="_blank" rel="noopener">How to Work with Scoped Packages</a></li>
-<li>译文出自：TWNTF</li>
-<li>译者：Yuqing Xia</li>
-<li>时间：2018.08.16</li>
-</ul>
+        <h3 id="Sinon-fake-time"><a href="#Sinon-fake-time" class="headerlink" title="Sinon fake time"></a>Sinon fake time</h3><p>当我们的代码中存在与时间相关操作时，如<code>setTimeout</code>的使用，在测试中，我们需要模拟时钟，sinon 为我们提供了<code>useFakeTimers</code>去代替 js 中的时钟。</p>
+<p>直接看例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sinon <span class="keyword">from</span> <span class="string">'sinon'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> finishLoading = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">let</span> clock = sinon.useFakeTimers();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'time start:'</span>, <span class="built_in">Date</span>.now());</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> load = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    finishLoading = <span class="literal">true</span>;</span><br><span class="line">  &#125;, <span class="number">10000</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">load();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'before load:'</span>, finishLoading, <span class="string">'time:'</span>, <span class="built_in">Date</span>.now());</span><br><span class="line">clock.tick(<span class="number">10000</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'after load:'</span>, finishLoading, <span class="string">'time:'</span>, <span class="built_in">Date</span>.now());</span><br></pre></td></tr></table></figure></p>
+<p>打印结果为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">time start: 0</span><br><span class="line">before load: <span class="literal">false</span> time: 0</span><br><span class="line">after load: <span class="literal">true</span> time: 10000</span><br></pre></td></tr></table></figure></p>
+<p>看打印结果可以知道，在我们使用<code>sinon.useFakeTimers</code>创建时钟对象后，测试环境中的<code>Date</code>就被完全代理了，获取当前时间为<code>0</code>，而不是正常的时间戳形式。后面，当我们调用了<code>setTimeout</code>函数后，使用<code>clock.tick</code>去模拟花费的时间，注意该函数必须在<code>setTimeout</code>函数调用之后使用，这也很好理解，因为只有调用了<code>setTimeout</code>函数，才需要去模拟花费的时间。最终，我们在运行测试时，并没有需要等 10 秒后才能改变<code>finishLoading</code>参数的状态，而是立即改变。</p>
+<p>理解：sinon 中的 <code>useFakeTimers</code>和<code>tick</code>的共同使用，前者直接代理了测试环境的时间，后者则是在测试环境时间获取的基础上，对时间进行推移操作。大概比喻，<code>useFakeTimers</code>好比测试环境下的时钟，<code>tick</code>就是我们人为的调动时钟上的指针，推动时间的前进。</p>
+<p><strong>注意：</strong>我们都知道，通过这种方式生成的<code>clock</code>是测试环境虚拟的时间，完成测试后，我们需要将其卸载，通过<code>clock = sinon.restore()</code>或<code>clock.restore()</code>完成。如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sinon <span class="keyword">from</span> <span class="string">'sinon'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> finishLoading = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">let</span> clock = sinon.useFakeTimers();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'time start:'</span>, <span class="built_in">Date</span>.now());</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> load = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    finishLoading = <span class="literal">true</span>;</span><br><span class="line">  &#125;, <span class="number">10000</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">load();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'before load:'</span>, finishLoading, <span class="string">'time:'</span>, <span class="built_in">Date</span>.now());</span><br><span class="line">clock.tick(<span class="number">10000</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'after load:'</span>, finishLoading, <span class="string">'time:'</span>, <span class="built_in">Date</span>.now());</span><br><span class="line">clock = sinon.restore();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'real date:'</span>, <span class="built_in">Date</span>.now());</span><br></pre></td></tr></table></figure></p>
+<p>打印结果为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">time start: 0</span><br><span class="line">before load: <span class="literal">false</span> time: 0</span><br><span class="line">after load: <span class="literal">true</span> time: 10000</span><br><span class="line">real date: 1536204867254</span><br></pre></td></tr></table></figure></p>
+<p>这里我们可以看到在<code>restore</code>发生后，当前时间就变成了正常的时间戳形式，也就是真实的时间。</p>
 
       
     </div>
@@ -437,11 +419,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/npm/" rel="tag"># npm</a>
+            <a href="/tags/sinon/" rel="tag"># sinon</a>
           
-            <a href="/tags/package/" rel="tag"># package</a>
-          
-            <a href="/tags/node/" rel="tag"># node</a>
+            <a href="/tags/fake-time/" rel="tag"># fake time</a>
           
         </div>
       
@@ -454,8 +434,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/07/sinon-spy/" rel="next" title="sinon spy">
-                <i class="fa fa-chevron-left"></i> sinon spy
+              <a href="/2018/09/10/test-double-in-Sinon-对比与最佳实践/" rel="next" title="test double in Sinon 对比与最佳实践">
+                <i class="fa fa-chevron-left"></i> test double in Sinon 对比与最佳实践
               </a>
             
           </div>
@@ -463,10 +443,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/10/sinon-mock/" rel="prev" title="sinon mock">
-                sinon mock <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -650,7 +626,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#译：npm-package的域"><span class="nav-number">1.</span> <span class="nav-text">译：npm package的域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化-scoped-package"><span class="nav-number">1.1.</span> <span class="nav-text">初始化 scoped package</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发布-scoped-package"><span class="nav-number">1.2.</span> <span class="nav-text">发布 scoped package</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-scoped-package"><span class="nav-number">1.3.</span> <span class="nav-text">使用 scoped package</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sinon-fake-time"><span class="nav-number">1.</span> <span class="nav-text">Sinon fake time</span></a></li></ol></div>
             
 
           </div>
